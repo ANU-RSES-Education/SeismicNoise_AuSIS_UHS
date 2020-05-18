@@ -12,7 +12,7 @@ start = UTCDateTime("2020-12-00")
 
 # Leaving UTCDateTime() empty means "now":
 # and this means 24 hours ago: UTCDateTime() - 24*3600
-end = UTCDateTime("2020-02-15")
+end = UTCDateTime() - 24*3600 
 
 
 # This is the time it takes to be sure the data that we download is a complete record that
