@@ -8,7 +8,7 @@ from obspy import UTCDateTime
 # Set these values to control the notebook behaviour
 
 # Make sure you take at least a full week (>=7 days) before the first "ban"
-start = UTCDateTime("2019-12-00")
+start = UTCDateTime("2019-12-01")
 
 # Leaving UTCDateTime() empty means "now":
 # and this means 24 hours ago: UTCDateTime() - 24*3600
