@@ -27,7 +27,7 @@ dataset = "AuSiS_Ulladulla"
 time_zone = "Australia/Sydney"
 sitedesc = "Ulladulla High School, NSW"
 
-data_provider = "IRIS"
+data_provider = "http://auspass.edu.au:8080"
 logo = None 
 bans = {
         "2020-01-28 00:00":"End of School Summer Holiday",
@@ -36,3 +36,13 @@ bans = {
         }
 
 
+reference = {"start": "2020-01-28 00:00",
+              "end":  "2020-03-18 00:00"}
+
+summer_hol = {"start":"2019-12-20 00:00",
+              "end":  "2020-01-28 00:00"}
+
+lockdown   = {"start":"2020-03-19 00:00",
+              "end":  "2020-06-01 00:00"}
+
+reopening    = {"start":"2020-06-01 00:00"}
