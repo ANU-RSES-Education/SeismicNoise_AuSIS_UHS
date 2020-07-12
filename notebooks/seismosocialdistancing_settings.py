@@ -33,8 +33,10 @@ bans = {
         "2020-01-28 00:00":"End of School Summer Holiday",
         "2020-03-18 00:00":'No Large Gatherings',
         "2020-03-25 12:00":'Restaurants/Bars/Schools closed',
+        "2020-04-10 00:00":"Easter", 
+        "2020-05-18 00:00":"Schools open (VIC/NSW)", 
+        "2020-07-07 00:00":"Restrictions re-imposed (VIC)"
         }
-
 
 reference = {"start": "2020-01-28 00:00",
               "end":  "2020-03-25 00:00"}
