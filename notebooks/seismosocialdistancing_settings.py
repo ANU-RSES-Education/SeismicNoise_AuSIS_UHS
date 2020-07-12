@@ -29,7 +29,7 @@ sitedesc = "Ulladulla High School, NSW"
 
 data_provider = "http://auspass.edu.au:8080"
 logo = None 
-bans = {
+bans = { "2019-12-20 00:00":"Start of School Summer Holiday",
         "2020-01-28 00:00":"End of School Summer Holiday",
         "2020-03-18 00:00":'No Large Gatherings',
         "2020-03-25 12:00":'Closures',
