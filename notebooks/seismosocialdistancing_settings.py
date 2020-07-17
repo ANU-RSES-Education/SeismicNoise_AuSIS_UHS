@@ -35,7 +35,7 @@ bans = { "2019-12-20 00:00":"Start of School Summer Holiday",
         "2020-03-25 12:00":'Closures',
         "2020-04-10 00:00":"Easter", 
         "2020-05-25 00:00":"Schools open (NSW)", 
-        "2020-07-07 00:00":"Restrictions re-imposed (VIC)"
+        "2020-07-14 00:00":"Major storms and large swells (E. Aus)"
         }
 
 reference = {"start": "2020-01-28 00:00",
