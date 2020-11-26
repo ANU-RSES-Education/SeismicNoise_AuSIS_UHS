@@ -19,14 +19,28 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-  
-    - uses: goanpeca/setup-miniconda@v1.5.0
+    
+    - name: Cache conda
+      uses: actions/cache@v1
+      env:
+      # Increase this value to reset cache if etc/example-environment.yml has not changed
+        CACHE_NUMBER: 0
       with:
-        auto-update-conda: true
-        python-version: 3.7
-        activate-environment: ausis
-        environment-file: environment.yml
-        auto-activate-base: false
+        path: |
+          ~/conda_pkgs_dir
+          ~/.cache/pip
+            
+        key: ubuntu-seismo-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('.environment.yml') }}
+
+    - name: Miniconda + Cache
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+          miniconda-version: "latest"
+          environment-file: environment.yml
+          activate-environment: ausis
+          python-version: 3.7
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+
 
     - name: Install dependencies with conda # (the shell line is needed for conda paths etc)
       shell: bash -l {0}
@@ -34,11 +48,13 @@ jobs:
         pip install tables
         conda info 
         conda list
+
     - name: Run the code
       shell: bash -l {0}
       run: |
         ./notebook_runner.sh &> output_log.txt
         ls -l workdir  # add this to the logs for debugging / monitoring 
+
     - name: Upload the log files (for now just an artifact)
       if: always()  # upload any output if above fails
       continue-on-error: true  # Usually indicates nothing has change / nothing nees to be committed.
@@ -62,7 +78,12 @@ jobs:
         git add data/*npz 
         git add results/*.csv
         git commit -m "Updated results: `date` " 
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    
+
+      
