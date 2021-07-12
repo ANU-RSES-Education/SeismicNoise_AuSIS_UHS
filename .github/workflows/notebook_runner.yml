@@ -3,10 +3,16 @@ name: run notebooks
 # push or on schedule
 on:
 
+  workflow_dispatch:
+  
+  push: 
+    branches:
+      - master
+  
   schedule: 
     - cron:  '0 17 * * *'  # Every day at 5pm UTC - early am AuSIS time 
+    
 
-  push: 
     
 jobs:
   # This workflow contains a single job called "build"
